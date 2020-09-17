@@ -54,16 +54,14 @@ def incluiFimLista(lista):
 
   return lista
 
-#germano explica start
 def consultaElementLista(lista): #consulta o elemento chamado lista
     index = int(input("Informe o index.....: ")) #cria a variavel index e pede para o usuario informar o numero desta variavel
     if index < lista.numeroElementos:
         print(str(lista.alunos[index].nome) + ' ' + str(lista.alunos[index].matricula)) #imprime o nome e a matricula na posicao informada pelo index
     else:
         print('ops, esse index n tem nada')
-#germano explica end
 
-def incluiInicioLista(lista): #Paulo
+def incluiInicioLista(lista):
 
   if lista.numeroElementos != len(lista.alunos): #Se o numero de elementos for diferente do numero total
     listabkp = lista.alunos #criada nova lista pra receber a lista antiga
@@ -73,7 +71,7 @@ def incluiInicioLista(lista): #Paulo
         lista.alunos[i+1] = listabkp[i]
 
 
-    lista.numeroElementos += 1
+    lista.numeroElementos += 1 #conta +1 no numero de elementos
 
     print("Sucesso na inclusão... 👏!")
   else:
@@ -85,14 +83,13 @@ def incluiInicioLista(lista): #Paulo
 def excluiElementoLista(lista):
 
     index = int(input("Informe o index.....: "))
-    if index < lista.numeroElementos:
-        lista.alunos = lista.alunos[:index] + lista.alunos[index+1 :]
-        lista.numeroElementos -= 1
+    if index < lista.numeroElementos: #se index existe na lista
+        lista.alunos = lista.alunos[:index] + lista.alunos[index+1 :] #transforma a lista em 2 cortando antes e depois do index, juntando depois
+        lista.numeroElementos -= 1 #tira 1
     else:
         print('ops, esse index n tem nada')
     return lista
 
-#Lucas
 def alteraElementoLista(lista):
     index = int(input("Informe o index.....: ")) #digitar a matricula a ser excluida
     if index < lista.numeroElementos:
@@ -104,10 +101,10 @@ def alteraElementoLista(lista):
 
 def bubbleSort(lista):
 
-    for i in range(lista.numeroElementos-1):
-        for j in range(0, lista.numeroElementos-i-1):
-            if int(lista.alunos[j].matricula) > int(lista.alunos[j+1].matricula):
-                lista.alunos[j], lista.alunos[j+1] = lista.alunos[j+1], lista.alunos[j]
+    for i in range(lista.numeroElementos-1): #itera por toda a lista
+        for j in range(0, lista.numeroElementos-i-1): #itera de 0 até tamanho da lista - i - 1
+            if int(lista.alunos[j].matricula) > int(lista.alunos[j+1].matricula): #se j for maior que o proximo elemento
+                lista.alunos[j], lista.alunos[j+1] = lista.alunos[j+1], lista.alunos[j] #coloca o j depois do elemento que é maior que ele
     return lista
 
 
