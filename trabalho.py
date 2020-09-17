@@ -15,7 +15,7 @@ class Lista:
 def criaLista():
 
   lista = Lista()
-  print("Beleza, você criou uma lista!")
+  print("🧐 Beleza, você criou uma lista!")
   return lista
 
 
@@ -126,7 +126,7 @@ def menu():
 
     while True:
       opcaoMenu = input("Opção: ")
-      if opcaoMenu >= '0' and opcaoMenu <= '9':
+      if opcaoMenu >= '1' and opcaoMenu <= '9':
         break
     print()
 
@@ -148,12 +148,10 @@ def menu():
       lista = bubbleSort(lista)
     elif opcaoMenu == '9':
       lista = corrompeLista(lista)
-    elif opcaoMenu == '0':
-      print('😀😃😄😁😆😅😂🤣☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🤩🥳😏😒😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤬🤯😳🥵🥶😱😨😰😥😓🤗🤔🤭🤫🤥😶😐😑😬🙄😯😦😧😮😲🥱😴🤤😪😵🤐🥴🤢🤮🤧😷🤒🤕🤑🤠😈👿👹👺🤡💩👻💀☠️👽👾🤖🎃😺😸😹😻😼😽🙀😿😾')
 
     else:
       print()
-      print("\033[93m" + "[ ____ Ahhhh, que pena, você já vai... Volte sempre! ____ ]")
+      print("\033[93m" + "[ ____ 🤬 Não Volte sempre! 🤬 ____ ]")
       break
 
 menu()
