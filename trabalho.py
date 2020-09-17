@@ -1,6 +1,5 @@
 import random
 import string
-# import pickle
 
 tamanhoLista = 8
 
@@ -54,11 +53,11 @@ def incluiFimLista(lista):
     print("Lista lotadinha... desculpe!")
 
   return lista
-
-def consultaElementLista(lista):
-    index = int(input("Informe o index.....: "))
-    print(lista.alunos[index].nome + ' ' + lista.alunos[index].matricula)
-
+#germano explica start
+def consultaElementLista(lista): #consulta o elemento chamado lista
+    index = int(input("Informe o index.....: ")) #cria a variavel index e pede para o usuario informar o numero desta variavel
+    print(lista.alunos[index].nome + ' ' + lista.alunos[index].matricula) #imprime o nome e a matricula na posicao informada pelo index
+#germano explica end
 def incluiInicioLista(lista):
 
 
@@ -86,19 +85,18 @@ def excluiElementoLista(lista):
     lista.numeroElementos -= 1
     return lista
 
-
+#Lucas
 def alteraElementoLista(lista):
-    index = int(input("Informe o index.....: "))
-    lista.alunos[index] = entradaDados()
+    index = int(input("Informe o index.....: ")) #digitar a matricula a ser excluida
+    lista.alunos[index] = entradaDados() #pega o index novo e cola em cima do outro
 
     return lista
 
 
 def bubbleSort(lista):
-    n = lista.numeroElementos
 
-    for i in range(n-1):
-        for j in range(0, n-i-1):
+    for i in range(lista.numeroElementos-1):
+        for j in range(0, lista.numeroElementos-i-1):
             if int(lista.alunos[j].matricula) > int(lista.alunos[j+1].matricula) :
                 lista.alunos[j], lista.alunos[j+1] = lista.alunos[j+1], lista.alunos[j]
     return lista
@@ -110,10 +108,6 @@ def corrompeLista(lista):
         lista.alunos[i].nome = ''.join(random.SystemRandom().choice(string.ascii_letters) for j in range(len(str(lista.alunos[i].nome))))
         lista.alunos[i].matricula = ''.join(random.SystemRandom().choice(string.digits) for j in range(len(str(lista.alunos[i].matricula))))
     return lista
-
-# def save(lista):
-#     with open('lista.dictionary', 'wb') as listaFile:
-#         pickle.dump(lista, listaFile)
 
 
 def menu():
@@ -132,7 +126,7 @@ def menu():
 
     while True:
       opcaoMenu = input("Opção: ")
-      if opcaoMenu >= '1' and opcaoMenu <= '9':
+      if opcaoMenu >= '0' and opcaoMenu <= '9':
         break
     print()
 
@@ -154,8 +148,8 @@ def menu():
       lista = bubbleSort(lista)
     elif opcaoMenu == '9':
       lista = corrompeLista(lista)
-    # elif opcaoMenu == '10':
-    #   save(lista.alunos)
+    elif opcaoMenu == '0':
+      print('😀😃😄😁😆😅😂🤣☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🤩🥳😏😒😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤬🤯😳🥵🥶😱😨😰😥😓🤗🤔🤭🤫🤥😶😐😑😬🙄😯😦😧😮😲🥱😴🤤😪😵🤐🥴🤢🤮🤧😷🤒🤕🤑🤠😈👿👹👺🤡💩👻💀☠️👽👾🤖🎃😺😸😹😻😼😽🙀😿😾')
 
     else:
       print()
