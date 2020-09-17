@@ -1,15 +1,6 @@
 import random
 import string
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+# import pickle
 
 tamanhoLista = 8
 
@@ -120,9 +111,14 @@ def corrompeLista(lista):
         lista.alunos[i].matricula = ''.join(random.SystemRandom().choice(string.digits) for j in range(len(str(lista.alunos[i].matricula))))
     return lista
 
+# def save(lista):
+#     with open('lista.dictionary', 'wb') as listaFile:
+#         pickle.dump(lista, listaFile)
+
+
 def menu():
   while True:
-    print(bcolors.WARNING + "[ ____ SISTEMA 🤑 ACADÊMICO ____ ]\n \
+    print("\033[93m" + "[ ____ SISTEMA 🤑 ACADÊMICO ____ ]\n \
 1. Cria lista, cara\n \
 2. Bota no fim da lista, cara\n \
 3. Coloca no inicio da lista, cara\n \
@@ -158,10 +154,12 @@ def menu():
       lista = bubbleSort(lista)
     elif opcaoMenu == '9':
       lista = corrompeLista(lista)
+    # elif opcaoMenu == '10':
+    #   save(lista.alunos)
 
     else:
       print()
-      print(bcolors.WARNING + "[ ____ Ahhhh, que pena, você já vai... Volte sempre! ____ ]")
+      print("\033[93m" + "[ ____ Ahhhh, que pena, você já vai... Volte sempre! ____ ]")
       break
 
 menu()
