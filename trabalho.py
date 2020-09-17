@@ -127,12 +127,13 @@ def menu():
 6. Vamo vê oq tem nesse lugar da lista, parça \n \
 7. Troca aquele elemento ali por esse aqui, mano\n \
 8. Organiza a lista por bolhinhas, velho\n \
-9. sjfbhKSbfHfbKDBffjd, maninho")
+9. sjfbhKSbfHfbKDBffjd, maninho\n \
+0. Vlw flw, buddy")
 
 
     while True:
       opcaoMenu = input("Opção: ")
-      if opcaoMenu >= '1' and opcaoMenu <= '9':
+      if opcaoMenu >= '0' and opcaoMenu <= '9':
         break
     print()
 
@@ -161,7 +162,7 @@ def menu():
     elif opcaoMenu == '9':
       lista = corrompeLista(lista)
 
-    else:
+    elif opcaoMenu == '0':
       print()
       print("\033[93m" + "[ ____ 🤬 Não Volte sempre! 🤬 ____ ]")
       break
