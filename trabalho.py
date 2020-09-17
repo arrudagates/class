@@ -1,7 +1,7 @@
 import random
 import string
 
-tamanhoLista = 8
+tamanhoLista = 4
 
 
 class Pessoa:
@@ -53,16 +53,20 @@ def incluiFimLista(lista):
     print("Lista lotadinha... desculpe!")
 
   return lista
+
 #germano explica start
 def consultaElementLista(lista): #consulta o elemento chamado lista
     index = int(input("Informe o index.....: ")) #cria a variavel index e pede para o usuario informar o numero desta variavel
-    print(lista.alunos[index].nome + ' ' + lista.alunos[index].matricula) #imprime o nome e a matricula na posicao informada pelo index
+    if index < lista.numeroElementos:
+        print(str(lista.alunos[index].nome) + ' ' + str(lista.alunos[index].matricula)) #imprime o nome e a matricula na posicao informada pelo index
+    else:
+        print('ops, esse index n tem nada')
 #germano explica end
-def incluiInicioLista(lista):
 
+def incluiInicioLista(lista): #Paulo
 
-  if lista.numeroElementos != len(lista.alunos):
-    listabkp = lista.alunos
+  if lista.numeroElementos != len(lista.alunos): #Se o numero de elementos for diferente do numero total
+    listabkp = lista.alunos #criada nova lista pra receber a lista antiga
     lista.alunos = [Pessoa()]*tamanhoLista
     lista.alunos[0] = entradaDados()
     for i in range(lista.numeroElementos):
@@ -81,15 +85,20 @@ def incluiInicioLista(lista):
 def excluiElementoLista(lista):
 
     index = int(input("Informe o index.....: "))
-    lista.alunos = lista.alunos[:index] + lista.alunos[index+1 :]
-    lista.numeroElementos -= 1
+    if index < lista.numeroElementos:
+        lista.alunos = lista.alunos[:index] + lista.alunos[index+1 :]
+        lista.numeroElementos -= 1
+    else:
+        print('ops, esse index n tem nada')
     return lista
 
 #Lucas
 def alteraElementoLista(lista):
     index = int(input("Informe o index.....: ")) #digitar a matricula a ser excluida
-    lista.alunos[index] = entradaDados() #pega o index novo e cola em cima do outro
-
+    if index < lista.numeroElementos:
+        lista.alunos[index] = entradaDados() #pega o index novo e cola em cima do outro
+    else:
+        print('ops, esse index n tem nada')
     return lista
 
 
@@ -97,7 +106,7 @@ def bubbleSort(lista):
 
     for i in range(lista.numeroElementos-1):
         for j in range(0, lista.numeroElementos-i-1):
-            if int(lista.alunos[j].matricula) > int(lista.alunos[j+1].matricula) :
+            if int(lista.alunos[j].matricula) > int(lista.alunos[j+1].matricula):
                 lista.alunos[j], lista.alunos[j+1] = lista.alunos[j+1], lista.alunos[j]
     return lista
 
