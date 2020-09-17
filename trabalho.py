@@ -136,6 +136,12 @@ def menu():
         break
     print()
 
+    if opcaoMenu >= '2' and opcaoMenu <= '9':
+        try:
+            lista
+        except NameError:
+            lista = criaLista()
+
     if opcaoMenu == '1':
       lista = criaLista()
     elif opcaoMenu == '2':
