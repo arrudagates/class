@@ -95,7 +95,7 @@ def alteraElementoLista(lista):
     if index < lista.numeroElementos:
         lista.alunos[index] = entradaDados() #pega o index novo e cola em cima do outro
     else:
-        print('ops, esse index n tem nada')
+        print("\033[93m" + 'ops, esse index n tem nada')
     return lista
 
 
